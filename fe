@@ -15,7 +15,7 @@ PARAM <- list()
 
 PARAM$experimento <- paste0("dataset_comp03", ".")
 
-PARAM$input$dataset <- "./dataset_exp.csv.gz"
+PARAM$input$dataset <- "./competencia_03_julia.csv.gz"
 
 # Aqui se debe poner la carpeta de la computadora local
 setwd("~/buckets/b1/") # Establezco el Working Directory
@@ -122,7 +122,7 @@ lag_cols <- colnames(dataset)[!(colnames(dataset) %in% c("numero_de_cliente", "f
 dataset <- dataset %>%
   arrange(numero_de_cliente, foto_mes) %>%
   group_by(numero_de_cliente) %>%
-  mutate(across(all_of(lag_cols), list(Lag2 = ~lag(.x, 2), Lag4 = ~lag(.x, 4), Lag5 = ~lag(.x, 5)), .names="lagged_{.col}_Lag{.fn}"))
+  mutate(across(all_of(lag_cols), list(Lag1 = ~lag(.x, 1), Lag2 = ~lag(.x, 2), Lag3 = ~lag(.x, 3), Lag4 = ~lag(.x, 4), Lag5 = ~lag(.x, 5)), Lag6 = ~lag(.x, 6) .names="lagged_{.col}_Lag{.fn}"))
 fwrite(dataset, file="dataset_comp03_6lagNA.csv.gz")
-
+,
 cat("\n\n El codigo ha terminado\n")
