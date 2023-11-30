@@ -1,2 +1,3 @@
-Paré el script a la semilla 48 porque ya se acababa la competencia
+Primero corrì el script fe y agregué al dataset 6 lags y imputé los nulos (del Catastrophe analysis) con NANS. 
+Luego corrì el semillerio, Paré el script a la semilla 48 porque ya se acababa la competencia.
  
